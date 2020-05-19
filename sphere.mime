@@ -1,0 +1,72 @@
+# Sphere file format magic db script
+# written by Eggbertx
+
+# Sphere .rfn font
+0	string	.rfn	Sphere font file
+!:ext rfn
+>4	short	x		v%d
+>6	short	x		with %d characters
+
+
+# Sphere .rmp map
+0	string	.rmp	Sphere map file
+!:ext rmp
+>4	short	x		v%d
+>7	byte	x		with %d layers,
+>8	byte	1		reserved
+>9	short	x		%d entities,
+>11	short	x		player pos: (%d,
+>13	short	x		%d)
+>15	byte	1		Start layer
+>16	byte	1		Start direction
+>17	short	2		strings
+>19	short	2		zones
+>21	byte	235		reserved
+
+
+# Sphere .rss spriteset
+0	string	.rss	Sphere spriteset
+!:ext rss
+>4	short	x		v%d
+>6	short	x		with %d images,
+>12	short	x		%d directions
+
+
+# Sphere .rts tileset
+0	string	.rts	Sphere tileset
+!:ext rts
+>4	short	x		v%d
+>6	short	x		with %d tiles,
+>8	short	x		width: %d,
+>10	short	x		height: %d
+
+
+# Sphere .rws windowstyle
+0	string	.rws	Sphere windowstyle
+!:ext rws
+>4	short	x		v%d
+
+
+# Sphere .sgm game manifest
+0		regex	\^name=			Sphere v1 game manifest:
+!:ext sgm
+>&0		regex	[^\012\015]+	"%s"
+>&0		regex	\^author=
+>>&0	regex	[^\012\015]+	by %s
+>>>&0	regex	\^description=
+>>>>&0	regex	[^\012\015]+
+>>>>&0	regex	\^script=
+>>>>>&0	regex	[^\012\015]+
+>>>>>&0		regex	\^screen_width=
+>>>>>>&0	regex	[^\012\015]+
+>>>>>>&0	regex	\^screen_height=
+>>>>>>>&0	regex	[^\012\015]+
+
+
+# Sphere .spk package
+0	string	.spk	Sphere package
+!:ext spk
+>4	short	x		v%d
+>6	long	x		containing %d files,
+>10	long	x		index offset: %d
+>14	byte	2		reserved

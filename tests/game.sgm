@@ -1,0 +1,6 @@
+name=Adapt
+author=Kamatsu
+description=Addictive Puzzle Game
+script=game.js
+screen_width=800
+screen_height=600
