@@ -10,7 +10,7 @@ make compile
 
 To use it, run
 ```
-file -m /path/to/sphere.mime.mgc
+file -m /path/to/sphere.mime.mgc /path/to/spherefile.[rfn|rmp|rss|rts|rws]
 ```
 
 To make using it more convenient, you can add this to your .bashrc file
